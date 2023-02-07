@@ -7,7 +7,8 @@ using namespace std;
 
 int solve(int N, int M, int S, vector<string> required_skills_list, vector<vector<tuple<string, int>>> players)
 {
-    // SCRIVI QUA IL TUO CODICE
+    
+
     return 0;
 }
 
@@ -36,7 +37,7 @@ int testcase()
 int main()
 {
 
-    // freopen("input.txt", "r", stdin); // DECOMMENTA QUA SE VUOI LEGGERE DA FILE
+    freopen("input.txt", "r", stdin); // DECOMMENTA QUA SE VUOI LEGGERE DA FILE
     // freopen("output.txt", "w", stdout); // DECOMMENTA QUA SE VUOI SCRIVERE DA FILE
 
     int T;

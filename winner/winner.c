@@ -22,6 +22,13 @@ typedef struct {
 } submission;
 
 
+typedef struct {
+    int scores;
+    int time;
+    int task[];
+
+} player;
+
 void InsertionSort(int x[], int n) {
     int i, j, app;
     for (i = 1; i < n; i++){
@@ -36,52 +43,48 @@ void InsertionSort(int x[], int n) {
 
 void calcola_classifica(int M, int N, int S, task tasks[], submission submissions[]) {
     
-    int player[M][N];       //save task submitted by each player
+    int player[M][N];
     int scores[M];
     int time[M];
     for(int i=0; i<M; i++){
-        for(int j=0; j<N; j++){
+        for(int j=0; j<N; j++)
             player[i][j] = 0;
-        }
+
         scores[i] = 0;
         time[i] = 0;
     }
 
-   // printf("player\ttask\t\tflag\ttime\n");
+
     for(int i=0; i<S; i++){
         int pl = submissions[i].player_id;
-        int ts = submissions[i].task_id;
-
-        printf("%d\t%d\t%s\t%d\n", pl, ts, submissions[i].flag, submissions[i].timestamp);
+        int ts = submissions[i].task_id - 1;
 
         if(player[pl][ts] == 0){
-            printf("\t%s\n", tasks[ts].task_flag);
+            player[pl][ts] = 1;
 
             if(strcmp(submissions[i].flag, tasks[ts].task_flag) == 0){
-            printf("diocane\n");
                 scores[pl] += tasks[ts].task_points;
 
                 if(submissions[i].timestamp > time[pl])
                     time[pl] = submissions[i].timestamp;
-
-              //  printf("\t%d\t%d\n", scores[i], time[i]);
             }
-            player[pl][ts] = 1;     //task submitted now
         }
-    }    
+    }
 
-    // printf("\n---------------\n\tscores\ttime\n");
-    // for(int i=0; i<M; i++){
-    //     printf("\t%d\t%d\n", scores[i], time[i]);
-    // }
+
+    //need sorting
+    printf("player\tpoints\ttimestamp\n");
+    for(int i=0; i<M; i++){
+        printf("%d\t%d\t%d\n", i, scores[i], time[i]);
+    }
 
     return;
 }
 
 int main() {
 
-    freopen("winner-input-1.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout); // DECOMMENTA QUA SE VUOI SCRIVERE DA FILE
+    freopen("winner-input-2.txt", "r", stdin);
+    freopen("output.txt", "w", stdout); // DECOMMENTA QUA SE VUOI SCRIVERE DA FILE
 
     int M, N, S;
     task tasks[MAXN];
