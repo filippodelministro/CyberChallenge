@@ -35,7 +35,7 @@ int min_workers(int N, int T, int Ti[]) {
 
 int main() {
 
-    freopen("workers-input-1.txt", "r", stdin);
+    freopen("workers-input-3.txt", "r", stdin);
     freopen("output.txt", "w", stdout); 
 
     int N, T;
