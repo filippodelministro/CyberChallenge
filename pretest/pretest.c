@@ -4,14 +4,20 @@
 
 
 int calcola_punteggio(int Q, char correct[], char candidate[]) {
-    // SCRIVI QUA IL TUO CODICE
-    return 0;
+    int result = 0;
+
+    for(int i=0; i<Q; i++){
+        if(correct[i] == candidate[i])
+            result++;
+    }
+
+    return result;
 }
 
 int main() {
 
-    // freopen("input.txt", "r", stdin); // DECOMMENTA QUA SE VUOI LEGGERE DA FILE
-    // freopen("output.txt", "w", stdout); // DECOMMENTA QUA SE VUOI SCRIVERE DA FILE
+    freopen("pretest-input-1.txt", "r", stdin); 
+    freopen("output.txt", "w", stdout);
 
     int N, Q;
     char correct[MAXN];
