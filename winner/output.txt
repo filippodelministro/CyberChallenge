@@ -1,0 +1,10 @@
+scores	time
+	2	0
+scores	time
+	0	0
+scores	time
+	0	0
+scores	time
+	0	0
+scores	time
+	0	0
